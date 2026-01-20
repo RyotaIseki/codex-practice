@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LITALICO発達ナビ キックオフ告知</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #f6f4ff;
+      --card: #ffffff;
+      --text: #1d1b30;
+      --muted: #5e5a7a;
+      --primary: #6b5cff;
+      --accent: #ffb74a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", "Noto Sans JP", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #ede9ff 0%, var(--bg) 45%, #fdfaff 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+    }
+
+    .card {
+      width: min(1100px, 100%);
+      background: var(--card);
+      border-radius: 32px;
+      box-shadow: 0 24px 60px rgba(32, 24, 64, 0.15);
+      overflow: hidden;
+      border: 1px solid rgba(107, 92, 255, 0.15);
+    }
+
+    .hero {
+      position: relative;
+      height: 360px;
+      background: linear-gradient(120deg, rgba(107, 92, 255, 0.85), rgba(255, 183, 74, 0.9));
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+      color: #fff;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+      opacity: 0.35;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.22);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 18px 0 10px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .details {
+      padding: 36px 40px 44px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 244, 255, 0.85));
+    }
+
+    .detail {
+      padding: 20px 22px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(107, 92, 255, 0.12);
+      box-shadow: 0 12px 24px rgba(107, 92, 255, 0.08);
+    }
+
+    .detail h2 {
+      font-size: 15px;
+      margin: 0 0 10px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .detail p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .detail span {
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        height: 300px;
+        padding: 24px;
+      }
+
+      .details {
+        padding: 28px 24px 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">Kickoff</div>
+        <h1>LITALICO発達ナビ キックオフ</h1>
+        <p>社内の知見を持ち寄り、発達支援の未来をともに描くスタートイベント。</p>
+      </div>
+    </section>
+    <section class="details" aria-label="イベント詳細">
+      <div class="detail">
+        <h2>タイトル</h2>
+        <p>発達ナビ キックオフ 2024</p>
+        <span>知見共有と連携強化</span>
+      </div>
+      <div class="detail">
+        <h2>開催日時</h2>
+        <p>2024年10月12日（土）</p>
+        <span>14:00 - 16:30</span>
+      </div>
+      <div class="detail">
+        <h2>場所</h2>
+        <p>渋谷オフィス 5F ラウンジ</p>
+        <span>オンライン配信あり</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
