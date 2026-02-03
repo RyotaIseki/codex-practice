@@ -9,12 +9,50 @@
     return;
   }
 
+  const logInfo = (message, data) => {
+    if (data !== undefined) {
+      console.info("[Meet Recording Reminder]", message, data);
+      return;
+    }
+    console.info("[Meet Recording Reminder]", message);
+  };
+
+  const logWarn = (message, error) => {
+    if (error !== undefined) {
+      console.warn("[Meet Recording Reminder]", message, error);
+      return;
+    }
+    console.warn("[Meet Recording Reminder]", message);
+  };
+
+  const safeSessionStorageGetRaw = (key) => {
+    try {
+      return sessionStorage.getItem(key);
+    } catch (error) {
+      logWarn("sessionStorage access failed. Falling back to in-memory state.", error);
+      return null;
+    }
+  };
+
+  const safeSessionStorageSetRaw = (key, value) => {
+    try {
+      sessionStorage.setItem(key, value);
+      return true;
+    } catch (error) {
+      logWarn("sessionStorage write failed. Falling back to in-memory state.", error);
+      return false;
+    }
+  };
+
   const tabSessionId = (() => {
     const key = "meetRecordingReminderTabId";
-    let value = sessionStorage.getItem(key);
+    let value = safeSessionStorageGetRaw(key);
     if (!value) {
       value = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-      sessionStorage.setItem(key, value);
+      const stored = safeSessionStorageSetRaw(key, value);
+      if (!stored) {
+        logInfo("Using in-memory tab session id.", value);
+      }
     }
     return value;
   })();
@@ -38,6 +76,7 @@
     try {
       return sessionStorage.getItem(key) === "true";
     } catch (error) {
+      logWarn("sessionStorage access failed. Falling back to in-memory state.", error);
       return memoryState.get(key) || false;
     }
   };
@@ -46,6 +85,7 @@
     try {
       sessionStorage.setItem(key, value ? "true" : "false");
     } catch (error) {
+      logWarn("sessionStorage write failed. Falling back to in-memory state.", error);
       memoryState.set(key, Boolean(value));
     }
   };
@@ -57,6 +97,7 @@
           const result = await chrome.storage.session.get(key);
           return result[key];
         } catch (error) {
+          logWarn("chrome.storage.session.get failed. Falling back to sessionStorage.", error);
           return safeSessionStorageGet(key);
         }
       }
@@ -68,6 +109,7 @@
           await chrome.storage.session.set({ [key]: value });
           return;
         } catch (error) {
+          logWarn("chrome.storage.session.set failed. Falling back to sessionStorage.", error);
           safeSessionStorageSet(key, value);
           return;
         }
