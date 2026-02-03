@@ -1,0 +1,148 @@
+#meet-recording-reminder-root,
+#meet-recording-reminder-banner,
+#meet-recording-guide {
+  font-family: "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+#meet-recording-reminder-root {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#meet-recording-reminder-modal {
+  width: min(560px, 90vw);
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+#meet-recording-reminder-modal h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: #111;
+}
+
+#meet-recording-reminder-modal p {
+  margin: 0 0 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+#meet-recording-reminder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.meet-recording-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.meet-recording-primary {
+  background: #1a73e8;
+  color: #fff;
+}
+
+.meet-recording-secondary {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+
+.meet-recording-disabled {
+  background: #cfd8dc;
+  color: #607d8b;
+  cursor: not-allowed;
+}
+
+#meet-recording-checkboxes {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+#meet-recording-minimize {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+#meet-recording-reminder-banner {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #1a73e8;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  z-index: 2147483647;
+  display: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+#meet-recording-reminder-banner button {
+  margin-left: 12px;
+  background: #fff;
+  color: #1a73e8;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#meet-recording-guide {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+}
+
+.meet-recording-highlight {
+  position: fixed;
+  border: 3px solid #fbbc04;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px rgba(251, 188, 4, 0.35);
+  pointer-events: none;
+}
+
+#meet-recording-tooltip {
+  position: fixed;
+  max-width: 280px;
+  background: #202124;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+#meet-recording-tooltip strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #fbbc04;
+}
+
+.meet-recording-guide-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #c9cdd3;
+}
