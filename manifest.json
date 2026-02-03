@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Meet Recording Reminder",
+  "version": "1.0.0",
+  "description": "Reminds you to start Google Meet recording and transcription.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://meet.google.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
