@@ -95,9 +95,6 @@
       if (chrome?.storage?.session) {
         try {
           const result = await chrome.storage.session.get(key);
-          if (typeof result[key] === "undefined") {
-            return safeSessionStorageGet(key);
-          }
           return result[key];
         } catch (error) {
           logWarn("chrome.storage.session.get failed. Falling back to sessionStorage.", error);
@@ -118,6 +115,9 @@
         }
       }
       safeSessionStorageSet(key, value);
+    },
+  };
+
     },
   };
 
